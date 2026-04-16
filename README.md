@@ -14,11 +14,11 @@ A Streamlit web application that converts natural-language business questions in
 Make sure you have Python 3.11 installed. Create a virtual environment and install the requirements:
 
 ```bash
-python -m venv venv
+python -m venv SQLify
 # On Windows:
-venv\Scripts\activate
+SQLify\Scripts\activate
 # On Linux/Mac:
-source venv/bin/activate
+source SQLify/bin/activate
 
 pip install -r requirements.txt
 ```
@@ -36,11 +36,14 @@ DATABASE_PATH="REPLACE_WITH_MY_SQLITE_DB"
 ```
 
 ### 3. Run the App
-Start the Streamlit server:
+Start the application directly via Streamlit:
 
 ```bash
 streamlit run app.py
 ```
+
+## Architecture
+This project follows a modular architecture with a clear separation of concerns. For more details, see [ARCHITECTURE.md](docs/ARCHITECTURE.md) and the [Migration Guide](docs/MIGRATION_GUIDE.md).
 
 ## Known Limitations
 - The application currently supports SQLite only.

@@ -23,7 +23,7 @@ share/python-wheels/
 MANIFEST
 
 # Virtual Environment
-venv/
+SQLify/
 ENV/
 env/
 .env
@@ -41,6 +41,7 @@ env/
 
 # Output and logs
 *.txt
+AGENTS.md
 !requirements.txt
 !README.md
 out.txt
