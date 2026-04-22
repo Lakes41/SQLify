@@ -1,0 +1,11 @@
+streamlit
+llama-cpp-python
+sqlglot
+pydantic
+requests
+pandas
+numpy
+pyyaml
+orjson
+sentence-transformers
+pytest

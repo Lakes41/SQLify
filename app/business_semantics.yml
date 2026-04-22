@@ -1,0 +1,34 @@
+metrics:
+  revenue:
+    description: "Total sales amount from orders"
+    expression: "SUM(total_amount)"
+    source_tables: ["orders"]
+  active_customers:
+    description: "Number of unique customers who placed at least one order"
+    expression: "COUNT(DISTINCT customer_id)"
+    source_tables: ["orders"]
+  avg_order_value:
+    description: "Average amount per order"
+    expression: "AVG(total_amount)"
+    source_tables: ["orders"]
+
+dimensions:
+  month:
+    description: "The month of the order date in YYYY-MM format"
+    expression: "strftime('%Y-%m', order_date)"
+    source_tables: ["orders"]
+  customer_segment:
+    description: "The segment of the customer"
+    expression: "segment"
+    source_tables: ["customers"]
+
+synonyms:
+  sales: revenue
+  income: revenue
+  buyers: active_customers
+  tier: customer_segment
+
+join_hints:
+  orders_customers: "orders.customer_id = customers.customer_id"
+  order_items_orders: "order_items.order_id = orders.order_id"
+  order_items_products: "order_items.product_id = products.product_id"

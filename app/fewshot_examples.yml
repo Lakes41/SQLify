@@ -1,0 +1,14 @@
+- question: "Show total revenue by month for 2023"
+  sql: "SELECT strftime('%Y-%m', order_date) AS month, SUM(total_amount) AS revenue FROM orders WHERE order_date >= '2023-01-01' AND order_date <= '2023-12-31' GROUP BY month ORDER BY month;"
+
+- question: "Who are the top 5 customers by total spend?"
+  sql: "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers c JOIN orders o ON c.customer_id = o.customer_id GROUP BY c.name ORDER BY total_spend DESC LIMIT 5;"
+
+- question: "How many products were sold in each category?"
+  sql: "SELECT category, COUNT(*) AS count FROM products GROUP BY category;"
+
+- question: "List orders from last month"
+  sql: "SELECT * FROM orders WHERE order_date >= date('now', 'start of month', '-1 month') AND order_date < date('now', 'start of month');"
+
+- question: "Which customers haven't placed any orders?"
+  sql: "SELECT name FROM customers WHERE customer_id NOT IN (SELECT DISTINCT customer_id FROM orders);"
